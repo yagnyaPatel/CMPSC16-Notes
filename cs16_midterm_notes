@@ -1,116 +1,64 @@
-• Intro to Computers, Programming, and C++
-	•Parts of a computer:
-		•I/O, Processor, Main/Secondary Memory
-	•Compiler translates higher level Language to machine language
-	•AND and OR are commutative, but not when mixed
-• Variables and Assignments
-	•variables declared before they are initialized
-	•
-• Input and Output on Standard Devices (cout, cin)
-	•using namespace std;
-	•<<insertion operator
-	•>>extraction operator
-	•Data not read until Enter is pressed
-• Data Types, Escape Sequences, Formatting Decimal
-	•Escape Sequences
-		•\n new line (<<endl;)
-		•\t tab
-		•\\ backslash
-		•\" quote
-	•Decimal places:
-		•To specify fixed point notation, use:	  
-			cout.setf(ios::fixed);
-		•To specify that the decimal point will always be shown
-			cout.setf(ios::showpoint);  
-		•To specify that n decimal places will always be shown
-			cout.precision(n);
-• Arithmetic Operations and their Priorities
-	•+,-,++,--,!;*,/,%;+,-;<,>,<=,>=;==,!=;&&;||
-	•double division requires at least one double
-• Boolean Logic Operators
-	•AND and OR are commutative, but not when mixed
-	•
-• Flow of Control & Conditional Statements
-	•Computer Problem Workflow
-		•Analysis and Specification Phase
-			•Analyze the problem
-			•Specify the details
-		•Algorithm Development Phase
-			•Develop an algorithm
-			•Test your algorithm
-		•Implementation Phase
-			•Code your algorithm
-			•Test your code
-		•Maintenance Phase
-			•Use the program
-			•Maintain the program
-	•Conditional Statements
-		•if(condition){
-		exectued code
-		}else if(condition){
-		executed code
-		}else{
-		executed code
-		}
-• Loops: for, while, do-while
-	•for(initialize;condition;increment){//executed code}
-	•while(condition){//increment}
-		•list ended with sentinel value
-		•ask before iterating
-		•running out of input
-	•do{//executed code //increment}while(condition);
-• Types of Errors in Programming
-	•logic error: compiles but doesn't do as intended
-	•syntax error: does not compile bc of grammatical error
-	•run-time error: errors that occur during execution of program
-		•dividing by zero
-		•bad memory calls
-		•memory overflow
-		•avoid by using short-circuit eval
-	•compile-time error: errors that occur during compilation of a program
-	•convention violation
-		•formatting conventions
-• Multiway Branching and the 'switch' command
-	•nesting conditional statements
-		•use proper indentation
-		•don't need conditional for mutually exclusive cases
+• Libraries
+	•<cstring>	manage c-strings
+	•<string>	manage strings
+	•<fstream>	using file i/o
+	•<cstdlib>	use exit(1)
+	•<cctype>	use to manipulate or read type(ex:isspace())
+	•<cmath>	advanced math functions
+•*File I/O
+	•(1)create stream object(ifstream, ofstream)
+	•(2)open i/o w/ (in_stream.open("text.txt"))
+	•(3)use .fail() and exit(1) to test for file opening
+	•(4)close i/o w/ (in_stream.close("text.txt"))
+	•read with << or >>
+	•end of file
+		•in_stream.eof()	used for reading text
+		•in_stream>>next	used for reading numerical data
+	•.get(char)					reads one character from text at a time
+	•.getline(in_stream,string)	reads line as a string
+	• >> ignores whitespace, .get() reads for \t, \n, and spaces
+	•.put(char)			returns at least one character to outstream
+	•.putback()			puts at least one character back into the input stream
+•*Strings
+	•toupper(),tolower()	change case of character
+	•+ concatenate, += append
+	•Search Functions
+		•.find(),rfind,find_first_of,find_first_not_of
+			•return string::npos if position not found
+	•Descriptor Functions
+		•.length(), .size()
+	•Content Changers
+		•.substr(start, length),.replace(),.append(),.insert(),.erase()
+•Assert
+	• Will exit program if returns false.
+	• Tests for pre and post conditions (ex: assert(n>1&&n!=15);)
+•Formatting Output
+	• cout.setf()
+		•cout.setf(ios::fixed)	Fixed point notation
+		•showpoint	 			Always shows decimal point
+		•scientific				scientific notation
+		•showpos				shows + for positive numbers
+		•right/left				puts output on one end of the width(set rigth)
+	• cout.precision(n): 		Always shows n decimal places
+	• cout.setprecision(n);		same as precision, stays set
+	• cout.unsetf() 
+	• out_stream.width(n), cout<<setw(n)
+	• out_stream.open("file.txt", ios::app)
+								append data after existing data in file
 • Generating Random Numbers
 	•Step 1: seed random number generator
-		srand(time(0));//place inside main
-		•only need to do once
+		srand(time(0));//place inside main,only need to do once
 	•Step 2: use rand()
 		int r = rand();
 		• creates random numbers from 0<=r<=RAND_MAX
-		•to get random number in in range 0<=r<=n
-		int r = (rand()%n)+1;
+		•to get random number in in range 0<=r<=n: int r = (rand()%n)+1;
 • Functions in C++:
-	•pre-defined
-		•<cmath>
-	•user-defined
-		•return_type function_name(parameters){
-		//executed code
-		return;
-		}
-		•declare first, then main()
-		•";" needed for declaration alone
-	•void functions
-		•return no type
-		• can use "return;" to terminate early
-	•the main() function
-		•returns type int by convention
-			•include "return 0;" at end
-	•call-by-ref vs. call-by-value
 		•functions call by value by default
-		•functions will call a variable by reference if '&var' included in param in function declaration
+		•functions will call a variable by reference with '&'
 	•overloading
-		•Must have the same number of arguments but at least one different type
+		•Must have the same number of arguments but at least one diff type
 		•or Must have all the same type of argument but different number
 • Command Line Inputs to C++ Programs
 	int main(int argc, char* argv[])
-	•argc counts elements on command line including function call
-	•argv[k] returns character array of the k'th element
-	•<cstdlib>
-		•atoi(arg to int),atof(double),atol(long int)
-•Type Casting
-	•static_cast<end_type>(start_type)
-	
+	•<cstdlib>:atoi(),atof(),atol()
+•Type Casting: static_cast<end_type>(start_type)
